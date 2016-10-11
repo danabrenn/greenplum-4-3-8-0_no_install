@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Volumes/LaCie/gpdb vm builds/greenplum-4-3-8-0_no_install","disabled":false,"__vagrantfile":true}}}
+=======
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Volumes/LaCie/gpdb vm builds/greenplum-4-3-9-1_no_install","disabled":false,"__vagrantfile":true}}}
+>>>>>>> f3b8ae473395454285ac043e99e78746db2895c2

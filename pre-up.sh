@@ -4,8 +4,13 @@ echo "This is $0"
 
 box_url="https://gpdb-builds.s3.amazonaws.com/box-files/centos65_virtualbox_50G.box"
 bits_url="https://gpdb-builds.s3.amazonaws.com/lab-data/VM-Bits.tar"
+<<<<<<< HEAD
 gpdb_url="https://gpdb-builds.s3.amazonaws.com/gpdb-4.3.8.0/greenplum-db-4.3.8.0-build-1-RHEL5-x86_64.zip"
 gpcc_url="https://gpdb-builds.s3.amazonaws.com/gpdb-4.3.8.0/greenplum-cc-web-2.0.0-build-32-RHEL5-x86_64.zip"
+=======
+gpdb_url="https://gpdb-builds.s3.amazonaws.com/gpdb-4.3.9.1/greenplum-db-4.3.9.1-build-1-rhel5-x86_64.zip"
+gpcc_url="https://gpdb-builds.s3.amazonaws.com/gpdb-4-3-9.1/greenplum-cc-web-2.4.0-build-43-RHEL5-x86_64.zip"
+>>>>>>> f3b8ae473395454285ac043e99e78746db2895c2
 
 box="${box_url##*/}"
 bits="${bits_url##*/}"
