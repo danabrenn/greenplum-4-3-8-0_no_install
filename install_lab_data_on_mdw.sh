@@ -6,8 +6,10 @@ echo "***** Installing Lab Files On mdw *****"
 cd /
 
 # all files & directories in the  /vagrant directory are mounted on each vm
-# /VM-Bits-4-3-4-0 contains all of the bits required by the lab exercises
-cd vagrant/VM-Bits-4-3-8-0
+# /VM-Bits-4-3-8-0 contains all of the bits required by the lab exercises
+# changed dir name to VM-Bits to work with Goddards scripts
+# cd vagrant/VM-Bits-4-3-8-0
+cd vagrant/VM-Bits
 
 # copy the /rawdata directory to  / ( root directory )
 cp -r rawdata/ /

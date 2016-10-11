@@ -1,8 +1,13 @@
+# For "up", download a couple of files to cache them here
+if ARGV[0] =~ /^up$/i
+  system("./pre-up.sh")
+end
+
 Vagrant.configure("2") do |config|
 		config.vm.box = "centos65_virtualbox_50G.box"
 
 	config.vm.provider :virtualbox do |v, override|
-		override.vm.box_url = "https://googledrive.com/host/0B4tZlTbOXHYWVGpHRWZuTThGVUE/centos65_virtualbox_50G.box"
+		override.vm.box_url = "file:///tmp/centos65_virtualbox_50G.box"
 		v.customize ["modifyvm", :id, "--memory", "1024"]
 		v.customize ["modifyvm", :id, "--vram", "16"]
 	end
@@ -26,27 +31,28 @@ Vagrant.configure("2") do |config|
 
 	end
   
-config.vm.define :sdw2 do |sdw2_config|
+  	config.vm.define :sdw2 do |sdw2_config|
 		sdw2_config.vm.network :private_network, ip: "172.16.1.13"
 		sdw2_config.vm.hostname = "sdw2"
 		sdw2_config.vm.provision :shell, :path => "install_applications.sh"
 		sdw2_config.vm.provision :shell, :path => "setup_host.sh"
 		sdw2_config.vm.provision :shell, :path => "unmount_vagrant.sh"
 
-  end
+  	end
 
-  config.vm.define :mdw do |mdw_config|
-	mdw_config.vm.provider :virtualbox do |v3|
-		v3.customize ["modifyvm", :id, "--memory", "4096"]
-    end
-	mdw_config.vm.network :private_network, ip: "172.16.1.11"
-	mdw_config.vm.network "forwarded_port", guest: 5432, host: 5433
-	mdw_config.vm.hostname = "mdw"
-	mdw_config.vm.provision :shell, :path => "install_applications.sh"
-	mdw_config.vm.provision :shell, :path => "setup_host.sh"
-	mdw_config.vm.provision :shell, :path => "setup_master.sh"
-	mdw_config.vm.provision :shell, :path => "change_password.sh"
-	mdw_config.vm.provision :shell, :path => "install_lab_data_on_mdw.sh"
-	mdw_config.vm.provision :shell, :path => "unmount_vagrant.sh"
-  end
+  	config.vm.define :mdw do |mdw_config|
+		mdw_config.vm.provider :virtualbox do |v3|
+			v3.customize ["modifyvm", :id, "--memory", "4096"]
+    	end
+		mdw_config.vm.network :private_network, ip: "172.16.1.11"
+		mdw_config.vm.network "forwarded_port", guest: 5432, host: 5433
+		mdw_config.vm.hostname = "mdw"
+		mdw_config.vm.provision :shell, :path => "relax_directory_perms.sh"
+		mdw_config.vm.provision :shell, :path => "install_applications.sh"
+		mdw_config.vm.provision :shell, :path => "setup_host.sh"
+		mdw_config.vm.provision :shell, :path => "setup_master.sh"
+		mdw_config.vm.provision :shell, :path => "change_password.sh"
+		mdw_config.vm.provision :shell, :path => "install_lab_data_on_mdw.sh"
+		mdw_config.vm.provision :shell, :path => "unmount_vagrant.sh"
+  	end
 end

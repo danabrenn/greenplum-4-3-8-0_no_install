@@ -1,4 +1,4 @@
-#Instructions for building a Greenplum 4.3.8.0 / Greenplum Command Center 2.0.0 environment with Vagrant
+#Instructions for building a Greenplum 4.3.9.1 / Greenplum Command Center 2.4.0 environment with Vagrant
 
 ------------------
 ------------------
@@ -6,9 +6,9 @@ This Vagrant build will create four ( 4 ) Greenplum Database nodes.
 The four ( 4 ) nodes are:
 
 1.  mdw		--> greenplum master
-2.  smdw  --> greenplum standby master
-3.  sdw1  --> greenplum segment host 1
-4.  sdw2  --> greenplum segment host 2
+2.  smdw	--> greenplum standby master
+3.  sdw1	--> greenplum segment host 1
+4.  sdw2	--> greenplum segment host 2
 
 ------------------
 ------------------
